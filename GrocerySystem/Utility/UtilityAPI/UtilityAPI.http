@@ -1,0 +1,6 @@
+@UtilityAPI_HostAddress = http://localhost:5138
+
+GET {{UtilityAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
