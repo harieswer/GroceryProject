@@ -11,8 +11,10 @@ namespace CloudServices.Extensions
             switch (CloudPlatform)
             {
                 case "aws":
-                    _ = services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
+                     services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
                     break;
+               
+                    
             }
             return services;
         }

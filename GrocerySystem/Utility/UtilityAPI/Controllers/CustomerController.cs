@@ -26,11 +26,14 @@ namespace UtilityAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("customer-login")]
+        /// <summary>
+        /// Customer sign in from browser
         public async Task<IActionResult> CustomerSignin([FromBody] CustomerLoginModel customerLoginModel)
         {
-            ApplicationCore.Responses.CustomerSignInResponse result = await _mediator.Send(new CustomerSignInRequestQueryParamter() { Email = customerLoginModel.Email, Password = customerLoginModel.Password });
+            ApplicationCore.Responses.CustomerSignInResponse result = await _mediator.Send(new CustomerSignInRequestQueryParamter() { CustomerLoginModel= customerLoginModel });
             return Ok(result);
         }
+        
     }
 
 }

@@ -11,5 +11,6 @@ namespace DbConnectivity.Interfaces
         DbConnection GetConnection();
         Task OpenAsync();
         Task<DbTransaction> BeginTransactionAsync(IsolationLevel isolationLevel);
+        
     }
 }

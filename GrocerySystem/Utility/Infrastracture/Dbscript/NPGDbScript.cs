@@ -3,14 +3,14 @@ using ApplicationCore.DbScript;
 
 namespace Infrastracture.Dbscript
 {
-    public class NPGDbScript : IDbScript
+    public class PostgresqlDbScript : IDbScript
     {
-        public NPGDbScript()
+        public PostgresqlDbScript()
         {
             GetAllUsersById = $"SELECT * FROM f_get_all_usersbyId(@userid);";
             GetAllUsers = $"SELECT * FROM f_get_all_users()";
             comandType = CommandType.Text;
-            CustomerSignDbQuery = $"SELECT * FROM fn_getCustomerDetails(@emailId)";
+            CustomerSignDbQuery = $"SELECT * FROM fn_getCustomerDetails(@emailId,@phone_Number,@fingerprint_code)";
             PC_CustomerRegister = "insertcustomerdetails";
         }
         public string GetAllUsersById { get; }

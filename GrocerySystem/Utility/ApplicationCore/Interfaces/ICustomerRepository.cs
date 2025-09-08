@@ -4,7 +4,7 @@ namespace ApplicationCore.Interfaces
 {
     public interface ICustomerRepository
     {
-        Task<CustomerDetails> CustomerSigninAsync(string emailId);
+        Task<CustomerLoginResponse> CustomerSigninAsync(CustomerLoginModel customerLoginModel);
         Task<int> RegisterCustomerDetails(CustomerRegisterModel registerModel);
     }
 }

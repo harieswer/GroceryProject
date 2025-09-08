@@ -18,17 +18,19 @@ namespace Infrastracture.Repository
             _transaction = transaction;
             _dbScript = dbScript;
         }
-        public async Task<CustomerDetails> CustomerSigninAsync(string emailId)
+        public async Task<CustomerLoginResponse> CustomerSigninAsync(CustomerLoginModel customerLoginModel)
         {
             DynamicParameters parameters = new();
-            parameters.Add("@emailId", emailId);
-            return await _databaseConnection.QueryFirstOrDefaultAsync<CustomerDetails>(_dbScript.CustomerSignDbQuery, parameters, commandType: _dbScript.comandType, transaction: _transaction());
+            parameters.Add("@emailId", customerLoginModel.Email);
+            parameters.Add("@phone_Number", customerLoginModel.PhoneNumber);
+            parameters.Add("@Imi_Number", customerLoginModel.IMINumber);
+            return await _databaseConnection.QueryFirstOrDefaultAsync<CustomerLoginResponse>(_dbScript.CustomerSignDbQuery, parameters, commandType: _dbScript.comandType, transaction: _transaction());
         }
 
 
         public async Task<int> RegisterCustomerDetails(CustomerRegisterModel registerModel)
         {
-            DynamicParameters parameters = new();
+            DynamicParameters parameters = new();      
             parameters.Add("@ip_phnumber", registerModel.PhoneNumber);
             parameters.Add("@ip_email", registerModel.Email);
             parameters.Add("@ip_pwd", registerModel.Password);

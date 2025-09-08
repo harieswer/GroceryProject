@@ -15,7 +15,7 @@ namespace Infrastracture.Extensions
             switch (dbServer)
             {
                 case "postgresql":
-                    _ = services.AddScoped<IDbScript, NPGDbScript>();
+                    _ = services.AddScoped<IDbScript, PostgresqlDbScript>();
                     break;
             }
             _ = services.AddScoped<IUnitOfWork, UnitOfWork>();

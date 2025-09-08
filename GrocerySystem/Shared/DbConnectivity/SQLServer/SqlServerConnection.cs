@@ -47,6 +47,8 @@ namespace DbConnectivity.SQLServer
         {
             return await _connection.BeginTransactionAsync(isolationLevel);
         }
+
+        
     }
 
 }

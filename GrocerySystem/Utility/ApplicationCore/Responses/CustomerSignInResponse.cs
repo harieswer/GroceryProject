@@ -18,7 +18,13 @@
         None = 0,
         Success = 1,
         Fail = 2,
-        InvalidCredintials = 3
+        InvalidCredintials = 3,
+        InvalidPin=4,
+        InvalidOtp=5,
+
+
+
+           
 
     }
 }
